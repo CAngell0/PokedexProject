@@ -5,4 +5,8 @@ public class Rowlet extends Pokemon {
       super(722, "Rowlet");
       this.setCanEvolve(true);
    }
+
+   public Rowlet(String name){
+      super(722, name);
+   }
 }

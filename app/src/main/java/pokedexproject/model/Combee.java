@@ -5,4 +5,8 @@ public class Combee extends Pokemon {
       super(415, "Combee");
       this.setCanEvolve(true);
    }
+   
+   public Combee(String name){
+      super(415, name);
+   }
 }

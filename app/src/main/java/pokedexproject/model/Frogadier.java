@@ -5,4 +5,8 @@ public class Frogadier extends Pokemon {
       super(657, "Frogadier");
       this.setCanEvolve(true);
    }
+
+   public Frogadier(String name){
+      super(657, name);
+   }
 }
