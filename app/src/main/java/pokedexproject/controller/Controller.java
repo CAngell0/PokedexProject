@@ -17,10 +17,10 @@ public class Controller {
 
    private void createPokedex(){
       pokedex.add(new Combee());
-      pokedex.add(new Frogadier());
-      pokedex.add(new Lunala());
+      pokedex.add(new Frogadier("Frogger"));
+      pokedex.add(new Lunala("Moon Guy"));
       pokedex.add(new Marill());
-      pokedex.add(new Rowlet());
+      pokedex.add(new Rowlet("Owl"));
       pokedex.add(new Snorlax());
    }
 }
