@@ -22,5 +22,9 @@ public class Controller {
       pokedex.add(new Marill());
       pokedex.add(new Rowlet("Owl"));
       pokedex.add(new Snorlax());
+      pokedex.add(new Snorlax("Marshmallow"));
+      pokedex.add(new Combee("Big Bee"));
+      pokedex.add(new Marill("Water Hose"));
+      pokedex.add(new Rowlet());
    }
 }
