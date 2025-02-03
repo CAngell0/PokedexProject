@@ -1,4 +1,8 @@
-package pokedexproject.model;
+package pokedexproject.model.pokemon;
+
+import pokedexproject.model.Pokemon;
+import pokedexproject.model.types.Fairy;
+import pokedexproject.model.types.Water;
 
 public class Marill extends Pokemon implements Water, Fairy {
    public Marill(){

@@ -1,6 +1,7 @@
 package pokedexproject.controller;
 
 import pokedexproject.model.*;
+import pokedexproject.model.pokemon.*;
 import pokedexproject.view.PokeFrame;
 
 import java.util.ArrayList;

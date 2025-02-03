@@ -1,6 +1,8 @@
-package pokedexproject.model;
+package pokedexproject.model.pokemon;
 
-public class Greninja extends Frogadier implements Water, Dark {
+import pokedexproject.model.types.Dark;
+
+public class Greninja extends Frogadier implements Dark {
    public Greninja(){
       super();
       setPokedexNumber(658);
@@ -19,11 +21,13 @@ public class Greninja extends Frogadier implements Water, Dark {
       super.setHealth(this.getHealth() + 5);
    }
 
+   @Override
    public int consume(int amount){
       int scale = (int) (Math.random() * 15);
       return scale * amount;
    }
 
+   @Override
    public void hide(){
 
    }

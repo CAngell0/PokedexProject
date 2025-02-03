@@ -1,4 +1,8 @@
-package pokedexproject.model;
+package pokedexproject.model.pokemon;
+
+import pokedexproject.model.Pokemon;
+import pokedexproject.model.types.Flying;
+import pokedexproject.model.types.Grass;
 
 public class Rowlet extends Pokemon implements Grass, Flying {
    public Rowlet(){

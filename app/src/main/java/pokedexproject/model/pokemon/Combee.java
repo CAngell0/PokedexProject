@@ -1,4 +1,8 @@
-package pokedexproject.model;
+package pokedexproject.model.pokemon;
+
+import pokedexproject.model.Pokemon;
+import pokedexproject.model.types.Bug;
+import pokedexproject.model.types.Flying;
 
 public class Combee extends Pokemon implements Bug, Flying {
    public Combee(){

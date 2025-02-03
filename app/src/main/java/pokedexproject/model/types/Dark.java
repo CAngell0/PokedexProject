@@ -1,4 +1,4 @@
-package pokedexproject.model;
+package pokedexproject.model.types;
 
 public interface Dark {
    public void hide();

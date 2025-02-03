@@ -1,4 +1,7 @@
-package pokedexproject.model;
+package pokedexproject.model.pokemon;
+
+import pokedexproject.model.Pokemon;
+import pokedexproject.model.types.Water;
 
 public class Frogadier extends Pokemon implements Water{
    public Frogadier(){

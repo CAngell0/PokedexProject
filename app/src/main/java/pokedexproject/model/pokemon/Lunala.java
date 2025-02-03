@@ -1,4 +1,8 @@
-package pokedexproject.model;
+package pokedexproject.model.pokemon;
+
+import pokedexproject.model.Pokemon;
+import pokedexproject.model.types.Ghost;
+import pokedexproject.model.types.Psychic;
 
 public class Lunala extends Pokemon implements Psychic, Ghost {
    public Lunala(){
