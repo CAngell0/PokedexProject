@@ -1,6 +1,6 @@
 package pokedexproject.model;
 
 public interface Normal {
-   public void punch();
-   public void tackle();
+   public int punch(int amount);
+   public int tackle(int amount);
 }
