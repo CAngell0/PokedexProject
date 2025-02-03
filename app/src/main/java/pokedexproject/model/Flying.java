@@ -1,6 +1,6 @@
 package pokedexproject.model;
 
 public interface Flying {
-   public void soar();
-   public void diveBomb();
+   public int soar(int amount);
+   public int diveBomb(int amount);
 }
