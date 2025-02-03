@@ -12,19 +12,19 @@ public class Greninja extends Frogadier implements Water, Dark {
 
    public int waterJet(int jetAmount){
       int scale = (int) (Math.random() * 10);
-      return scale;
+      return scale * jetAmount;
    }
 
    public void bubbles(){
       super.setHealth(this.getHealth() + 5);
    }
 
-   public int consume(){
+   public int consume(int amount){
       int scale = (int) (Math.random() * 15);
-      return scale;
+      return scale * amount;
    }
 
    public void hide(){
-      
+
    }
 }
