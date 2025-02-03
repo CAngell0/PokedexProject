@@ -2,5 +2,5 @@ package pokedexproject.model;
 
 public interface Ghost {
    public void permeate();
-   public void haunt();
+   public int haunt(int amount);
 }

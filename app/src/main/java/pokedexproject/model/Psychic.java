@@ -1,6 +1,6 @@
 package pokedexproject.model;
 
 public interface Psychic {
-   public void hipnotize();
-   public void psychicBeam();
+   public double hipnotize();
+   public int psychicBeam(int amount);
 }
