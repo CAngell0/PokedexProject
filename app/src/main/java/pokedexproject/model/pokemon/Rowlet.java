@@ -7,11 +7,12 @@ import pokedexproject.model.types.Grass;
 public class Rowlet extends Pokemon implements Grass, Flying {
    public Rowlet(){
       super(722, "Rowlet");
-      this.setCanEvolve(true);
+      this.setup(80, true);
    }
 
    public Rowlet(String name){
       super(722, name);
+      this.setup(80, true);
    }
 
    public int soar(int amount) {

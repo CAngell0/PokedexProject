@@ -6,10 +6,12 @@ public class Greninja extends Frogadier implements Dark {
    public Greninja(){
       super();
       setPokedexNumber(658);
+      this.setup(200, false);
    }
    public Greninja(String name){
       super(name);
       setPokedexNumber(658);
+      this.setup(200, false);
    }
 
    public int waterJet(int jetAmount){

@@ -7,11 +7,12 @@ import pokedexproject.model.types.Psychic;
 public class Lunala extends Pokemon implements Psychic, Ghost {
    public Lunala(){
       super(792, "Lunala");
-      this.setCanEvolve(false);
+      this.setup(400, false);
    }
 
    public Lunala(String name){
       super(792, name);
+      this.setup(400, false);
    }
 
    public void permeate() {

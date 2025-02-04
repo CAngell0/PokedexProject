@@ -7,11 +7,12 @@ import pokedexproject.model.types.Flying;
 public class Combee extends Pokemon implements Bug, Flying {
    public Combee(){
       super(415, "Combee");
-      this.setCanEvolve(true);
+      this.setup(75, true);
    }
    
    public Combee(String name){
       super(415, name);
+      this.setup(75, true);
    }
 
    public int soar(int amount) {

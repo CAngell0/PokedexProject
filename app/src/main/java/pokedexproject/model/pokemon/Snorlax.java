@@ -6,11 +6,12 @@ import pokedexproject.model.types.Normal;
 public class Snorlax extends Pokemon implements Normal {
    public Snorlax(){
       super(143, "Snorlax");
-      this.setCanEvolve(false);
+      this.setup(130, false);
    }
 
    public Snorlax(String name){
       super(143, name);
+      this.setup(130, false);
    }
 
    public int punch(int amount) {

@@ -7,11 +7,12 @@ import pokedexproject.model.types.Water;
 public class Marill extends Pokemon implements Water, Fairy {
    public Marill(){
       super(184, "Marill");
-      this.setCanEvolve(true);
+      this.setup(100, true);
    }
 
    public Marill(String name){
       super(184, name);
+      this.setup(100, true);
    }
 
    public void twinkle() {

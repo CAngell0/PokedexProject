@@ -6,11 +6,12 @@ import pokedexproject.model.types.Water;
 public class Frogadier extends Pokemon implements Water{
    public Frogadier(){
       super(657, "Frogadier");
-      this.setCanEvolve(true);
+      this.setup(100, true);
    }
 
    public Frogadier(String name){
       super(657, name);
+      this.setup(100, true);
    }
 
    public int waterJet(int jetAmount){
