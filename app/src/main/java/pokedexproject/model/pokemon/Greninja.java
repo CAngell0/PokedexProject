@@ -5,13 +5,11 @@ import pokedexproject.model.types.Dark;
 public class Greninja extends Frogadier implements Dark {
    public Greninja(){
       super();
-      setPokedexNumber(658);
-      this.setup(200, false);
+      this.setup(200, false, 658);
    }
    public Greninja(String name){
       super(name);
-      setPokedexNumber(658);
-      this.setup(200, false);
+      this.setup(200, false, 658);
    }
 
    public int waterJet(int jetAmount){

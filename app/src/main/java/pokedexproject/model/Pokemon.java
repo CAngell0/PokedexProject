@@ -45,6 +45,10 @@ public class Pokemon implements Serializable {
       this.health = health;
       this.canEvolve = canEvolve;
    }
+   public void setup(int health, boolean canEvolve, int pokedexNumber){
+      this.setup(health, canEvolve);
+      this.pokedexNumber = pokedexNumber;
+   }
 
    public int getPokedexNumber() {
       return pokedexNumber;
