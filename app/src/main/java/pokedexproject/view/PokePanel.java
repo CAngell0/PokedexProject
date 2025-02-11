@@ -49,8 +49,8 @@ public class PokePanel extends JPanel {
       this.evolveCheckBox = new JCheckBox("Pokemon Can Evolve: ", false);
       this.typeArea = new JTextArea(20, 20);
 
-      this.imageLabel = new JLabel("image");
       this.pokemonImage = new ImageIcon();
+      this.imageLabel = new JLabel("image");
       this.pokedexSelector = new JComboBox<String>();
 
       setupPanel();
@@ -70,7 +70,7 @@ public class PokePanel extends JPanel {
       } catch (NullPointerException error){
          pokemonImage = new ImageIcon(getClass().getResource(path + defaultName + extension));
       }
-
+      
       imageLabel.setIcon(pokemonImage);
       repaint();
    }
@@ -111,12 +111,12 @@ public class PokePanel extends JPanel {
       layout.putConstraint(SpringLayout.SOUTH, fieldPanel, -25, SpringLayout.SOUTH, this);
       layout.putConstraint(SpringLayout.NORTH, fieldPanel, 25, SpringLayout.NORTH, this);
 
-      layout.putConstraint(SpringLayout.WEST, imageLabel, -150, SpringLayout.WEST, this);
+      layout.putConstraint(SpringLayout.WEST, imageLabel, 350, SpringLayout.WEST, this);
       layout.putConstraint(SpringLayout.EAST, imageLabel, -100, SpringLayout.WEST, fieldPanel);
       layout.putConstraint(SpringLayout.NORTH, imageLabel, 150, SpringLayout.NORTH, this);
 
       layout.putConstraint(SpringLayout.WEST, pokedexSelector, 150, SpringLayout.WEST, this);
       layout.putConstraint(SpringLayout.EAST, pokedexSelector, -150, SpringLayout.WEST, fieldPanel);
-      layout.putConstraint(SpringLayout.SOUTH, pokedexSelector, -200, SpringLayout.SOUTH, this);
+      layout.putConstraint(SpringLayout.SOUTH, pokedexSelector, -150, SpringLayout.SOUTH, this);
    }
 }
