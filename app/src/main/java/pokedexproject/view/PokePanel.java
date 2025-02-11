@@ -43,7 +43,7 @@ public class PokePanel extends JPanel {
 
       this.nameLabel = new JLabel("Pokemon Name: ");
       this.healthLabel = new JLabel("Pokemon Health: ");
-      this.nameLabel = new JLabel("Pokemon Name: ");
+      this.numberLabel = new JLabel("Pokedex Number: ");
 
       this.updateButton = new JButton();
       this.evolveCheckBox = new JCheckBox("Pokemon Can Evolve: ", false);
@@ -56,6 +56,13 @@ public class PokePanel extends JPanel {
       setupPanel();
       setupListeners();
       setupLayout();
+   }
+
+   private void updateDisplay(String name){
+      String path = "/pokedexproject/view/images";
+      String extension = "png";
+      String defaultName = "pokeball";
+
    }
 
    private void setupPanel(){
