@@ -53,11 +53,25 @@ public class PokePanel extends JPanel {
       this.imageLabel = new JLabel("Pokemon Image:");
       this.pokedexSelector = new JComboBox<String>();
 
+      this.updateButton = new JButton("Update Pokemon");
+
       setupPanel();
       setupListeners();
       setupLayout();
 
       updateDisplay("");
+   }
+
+   private void collectInput(){
+      String name = nameField.getText();
+      String healthText = healthField.getText();
+      boolean canEvolve = evolveCheckBox.isSelected();
+      int index = pokedexSelector.getSelectedIndex();
+
+      if (app.validateNumber(healthText) && index > -1){
+         int health = Integer.parseInt(healthText);
+         app.updateCurrentPokemon(name, index, health, canEvolve);
+      }
    }
 
    private void updateDisplay(String name){
@@ -107,13 +121,17 @@ public class PokePanel extends JPanel {
       fieldPanel.add(evolveCheckBox);
       fieldPanel.add(scrollPane);
 
+      fieldPanel.add(updateButton);
+
       this.add(fieldPanel);
       this.add(imageLabel);
       this.add(pokedexSelector);
    }
-   private void setupListeners(){
 
+   private void setupListeners(){
+      updateButton.addActionListener(click -> collectInput());
    }
+
    private void setupLayout(){
       layout.putConstraint(SpringLayout.WEST, fieldPanel, -300, SpringLayout.EAST, this);
       layout.putConstraint(SpringLayout.EAST, fieldPanel, 25, SpringLayout.EAST, this);
