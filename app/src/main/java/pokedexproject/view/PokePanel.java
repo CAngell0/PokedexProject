@@ -46,11 +46,11 @@ public class PokePanel extends JPanel {
       this.numberLabel = new JLabel("Pokedex Number: ");
 
       this.updateButton = new JButton();
-      this.evolveCheckBox = new JCheckBox("Pokemon Can Evolve: ", false);
+      this.evolveCheckBox = new JCheckBox("Pokemon Evolves: ", false);
       this.typeArea = new JTextArea(20, 20);
 
       this.pokemonImage = new ImageIcon();
-      this.imageLabel = new JLabel("image");
+      this.imageLabel = new JLabel("Pokemon Image:");
       this.pokedexSelector = new JComboBox<String>();
 
       setupPanel();
@@ -78,16 +78,25 @@ public class PokePanel extends JPanel {
    private void setupPanel(){
       // this.setLayout();
       this.setLayout(layout);
-      this.setBackground(Color.CYAN);
+      this.setBackground(new Color(237, 237, 237));
 
       this.numberField.setEnabled(false);
       this.typeArea.setEnabled(false);
+
       this.scrollPane.setViewportView(typeArea);
       this.scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
       this.scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 
-      fieldPanel.add(healthLabel);
-      fieldPanel.add(healthField);
+      this.imageLabel.setHorizontalTextPosition(JLabel.CENTER);
+      this.imageLabel.setVerticalTextPosition((int) JPanel.BOTTOM_ALIGNMENT);
+      this.nameLabel.setHorizontalAlignment((int) CENTER_ALIGNMENT);
+      this.healthLabel.setHorizontalAlignment((int) CENTER_ALIGNMENT);
+      this.numberLabel.setHorizontalAlignment((int) CENTER_ALIGNMENT);
+
+      fieldPanel.setBackground(Color.white);
+
+      fieldPanel.add(nameLabel);
+      fieldPanel.add(nameField);
 
       fieldPanel.add(healthLabel);
       fieldPanel.add(healthField);
@@ -106,7 +115,7 @@ public class PokePanel extends JPanel {
 
    }
    private void setupLayout(){
-      layout.putConstraint(SpringLayout.WEST, fieldPanel, -250, SpringLayout.EAST, this);
+      layout.putConstraint(SpringLayout.WEST, fieldPanel, -300, SpringLayout.EAST, this);
       layout.putConstraint(SpringLayout.EAST, fieldPanel, 25, SpringLayout.EAST, this);
       layout.putConstraint(SpringLayout.SOUTH, fieldPanel, -25, SpringLayout.SOUTH, this);
       layout.putConstraint(SpringLayout.NORTH, fieldPanel, 25, SpringLayout.NORTH, this);
