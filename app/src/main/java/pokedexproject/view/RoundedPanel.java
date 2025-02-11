@@ -3,6 +3,7 @@ package pokedexproject.view;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+import java.awt.Shape;
 
 import javax.swing.JPanel;
 
@@ -24,12 +25,28 @@ public class RoundedPanel extends JPanel {
       super.paintComponent(graphics);
    }
 
+   private void createShape(){
+      int width = this.getWidth();
+      int height = this.getHeight();
+      int roundX = Math.min(width, topLeftRadius);
+      int roundY = Math.min(height, topLeftRadius);
+   }
+
+   public void setAllRadius(int radius){
+      this.setTopLeftRadius(radius);
+      this.setTopRightRadius(radius);
+      this.setBottomLeftRadius(radius);
+      this.setBottomRightRadius(radius);
+      repaint();
+   }
+
    public int getTopLeftRadius() {
       return topLeftRadius;
    }
 
    public void setTopLeftRadius(int topLeftRadius) {
       this.topLeftRadius = topLeftRadius;
+      repaint();
    }
 
    public int getTopRightRadius() {
@@ -38,6 +55,7 @@ public class RoundedPanel extends JPanel {
 
    public void setTopRightRadius(int topRightRadius) {
       this.topRightRadius = topRightRadius;
+      repaint();
    }
 
    public int getBottomLeftRadius() {
@@ -46,6 +64,7 @@ public class RoundedPanel extends JPanel {
 
    public void setBottomLeftRadius(int bottomLeftRadius) {
       this.bottomLeftRadius = bottomLeftRadius;
+      repaint();
    }
 
    public int getBottomRightRadius() {
@@ -54,5 +73,6 @@ public class RoundedPanel extends JPanel {
 
    public void setBottomRightRadius(int bottomRightRadius) {
       this.bottomRightRadius = bottomRightRadius;
+      repaint();
    }
 }

@@ -3,16 +3,19 @@ package pokedexproject.controller;
 import pokedexproject.model.*;
 import pokedexproject.model.pokemon.*;
 import pokedexproject.view.PokeFrame;
+import pokedexproject.view.Popup;
 
 import java.util.ArrayList;
 
 public class Controller {
    private ArrayList<Pokemon> pokemonList;
+   private Popup popup;
    private PokeFrame window;
 
    public Controller(){
       this.pokemonList = new ArrayList<Pokemon>();
       this.window = new PokeFrame(this);
+      this.popup = new Popup(window);
    }
 
    public void start(){
@@ -38,5 +41,18 @@ public class Controller {
       currentPokemon.setHealth(health);
       currentPokemon.setName(name);
       currentPokemon.setCanEvolve(canEvolve);
+   }
+
+   public boolean validateNumber(String text){
+      boolean isValid = false;
+
+      try {
+         Integer.parseInt(text);
+         isValid = true;
+      } catch (NumberFormatException error){
+         popup.displayMessage("Please make sure to type a number.");
+      }
+
+      return isValid;
    }
 }
