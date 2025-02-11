@@ -11,6 +11,7 @@ public class PokePanel extends JPanel {
 
    private JPanel fieldPanel;
    private JScrollPane scrollPane;
+   private SpringLayout layout;
    
    private JButton updateButton;
    private JCheckBox evolveCheckBox;
@@ -34,6 +35,7 @@ public class PokePanel extends JPanel {
 
       this.fieldPanel = new JPanel(new GridLayout(0,2));
       this.scrollPane = new JScrollPane();
+      this.layout = new SpringLayout();
 
       this.healthField = new JTextField("health");
       this.nameField = new JTextField("name");
@@ -45,7 +47,7 @@ public class PokePanel extends JPanel {
 
       this.updateButton = new JButton();
       this.evolveCheckBox = new JCheckBox("Pokemon Can Evolve: ", false);
-      this.typeArea = new JTextArea();
+      this.typeArea = new JTextArea(20, 20);
 
       this.imageLabel = new JLabel("image");
       this.pokemonImage = new ImageIcon();
@@ -57,7 +59,31 @@ public class PokePanel extends JPanel {
    }
 
    private void setupPanel(){
-      
+      // this.setLayout();
+      this.setLayout(layout);
+      this.setBackground(Color.CYAN);
+
+      this.numberField.setEnabled(false);
+      this.typeArea.setEnabled(false);
+      this.scrollPane.setViewportView(typeArea);
+      this.scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+      this.scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+
+      fieldPanel.add(healthLabel);
+      fieldPanel.add(healthField);
+
+      fieldPanel.add(healthLabel);
+      fieldPanel.add(healthField);
+
+      fieldPanel.add(numberLabel);
+      fieldPanel.add(numberField);
+
+      fieldPanel.add(evolveCheckBox);
+      fieldPanel.add(scrollPane);
+
+      this.add(fieldPanel);
+      this.add(imageLabel);
+      this.add(pokedexSelector);
    }
    private void setupListeners(){
 
