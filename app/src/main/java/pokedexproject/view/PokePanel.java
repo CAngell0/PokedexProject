@@ -56,13 +56,23 @@ public class PokePanel extends JPanel {
       setupPanel();
       setupListeners();
       setupLayout();
+
+      updateDisplay("");
    }
 
    private void updateDisplay(String name){
-      String path = "/pokedexproject/view/images";
-      String extension = "png";
+      String path = "/pokedexproject/view/images/";
+      String extension = ".png";
       String defaultName = "pokeball";
 
+      try {
+         pokemonImage = new ImageIcon(getClass().getResource(path + name + extension));
+      } catch (NullPointerException error){
+         pokemonImage = new ImageIcon(getClass().getResource(path + defaultName + extension));
+      }
+
+      imageLabel.setIcon(pokemonImage);
+      repaint();
    }
 
    private void setupPanel(){

@@ -38,7 +38,10 @@ application {
 }
 
 tasks.withType<Jar> {
-    manifest {
-        attributes["Main-Class"] = "pokedexproject.controller.Runner"
-    }
+   manifest {
+      attributes["Main-Class"] = "pokedexproject.controller.Runner"
+   }
+   from("src/main/java") {
+      include("pokedexproject/view/images/*.png")
+   }
 }
