@@ -3,13 +3,16 @@ package pokedexproject.view;
 import pokedexproject.controller.Controller;
 
 import javax.swing.*;
+import javax.swing.border.EtchedBorder;
+
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.GridLayout;
 
 public class PokePanel extends JPanel {
    Controller app;
 
-   private JPanel fieldPanel;
+   private RoundedPanel fieldPanel;
    private JScrollPane scrollPane;
    private SpringLayout layout;
    
@@ -33,13 +36,13 @@ public class PokePanel extends JPanel {
       super();
       this.app = app;
 
-      this.fieldPanel = new JPanel(new GridLayout(0,2));
+      this.fieldPanel = new RoundedPanel(new GridLayout(0,2));
       this.scrollPane = new JScrollPane();
       this.layout = new SpringLayout();
 
-      this.healthField = new JTextField("health");
-      this.nameField = new JTextField("name");
-      this.numberField = new JTextField("number");
+      this.healthField = new JTextField("Health");
+      this.nameField = new JTextField("Name");
+      this.numberField = new JTextField("Number");
 
       this.nameLabel = new JLabel("Pokemon Name: ");
       this.healthLabel = new JLabel("Pokemon Health: ");
@@ -86,11 +89,11 @@ public class PokePanel extends JPanel {
       }
       
       imageLabel.setIcon(pokemonImage);
+
       repaint();
    }
 
    private void setupPanel(){
-      // this.setLayout();
       this.setLayout(layout);
       this.setBackground(new Color(237, 237, 237));
 
@@ -103,10 +106,19 @@ public class PokePanel extends JPanel {
 
       this.imageLabel.setHorizontalTextPosition(JLabel.CENTER);
       this.imageLabel.setVerticalTextPosition((int) JPanel.BOTTOM_ALIGNMENT);
+      this.imageLabel.setFont(new Font("Serif", Font.BOLD, 32));
+
       this.nameLabel.setHorizontalAlignment((int) CENTER_ALIGNMENT);
-      this.healthLabel.setHorizontalAlignment((int) CENTER_ALIGNMENT);
+   this.healthLabel.setHorizontalAlignment((int) CENTER_ALIGNMENT);
       this.numberLabel.setHorizontalAlignment((int) CENTER_ALIGNMENT);
 
+      this.nameField.setBorder(BorderFactory.createEtchedBorder(EtchedBorder.LOWERED));
+      this.healthField.setBorder(BorderFactory.createEtchedBorder(EtchedBorder.LOWERED));
+      this.numberField.setBorder(BorderFactory.createEtchedBorder(EtchedBorder.LOWERED));
+      this.scrollPane.setBorder(BorderFactory.createEtchedBorder(EtchedBorder.LOWERED));
+
+      fieldPanel.setTopLeftRadius(50);
+      fieldPanel.setBottomLeftRadius(50);
       fieldPanel.setBackground(Color.white);
 
       fieldPanel.add(nameLabel);
@@ -121,6 +133,7 @@ public class PokePanel extends JPanel {
       fieldPanel.add(evolveCheckBox);
       fieldPanel.add(scrollPane);
 
+      fieldPanel.add(new JLabel(" "));
       fieldPanel.add(updateButton);
 
       this.add(fieldPanel);
@@ -134,9 +147,9 @@ public class PokePanel extends JPanel {
 
    private void setupLayout(){
       layout.putConstraint(SpringLayout.WEST, fieldPanel, -300, SpringLayout.EAST, this);
-      layout.putConstraint(SpringLayout.EAST, fieldPanel, 25, SpringLayout.EAST, this);
-      layout.putConstraint(SpringLayout.SOUTH, fieldPanel, -25, SpringLayout.SOUTH, this);
-      layout.putConstraint(SpringLayout.NORTH, fieldPanel, 25, SpringLayout.NORTH, this);
+      layout.putConstraint(SpringLayout.EAST, fieldPanel, 0, SpringLayout.EAST, this);
+      layout.putConstraint(SpringLayout.SOUTH, fieldPanel, -100, SpringLayout.SOUTH, this);
+      layout.putConstraint(SpringLayout.NORTH, fieldPanel, 100, SpringLayout.NORTH, this);
 
       layout.putConstraint(SpringLayout.WEST, imageLabel, 350, SpringLayout.WEST, this);
       layout.putConstraint(SpringLayout.EAST, imageLabel, -100, SpringLayout.WEST, fieldPanel);
@@ -144,6 +157,6 @@ public class PokePanel extends JPanel {
 
       layout.putConstraint(SpringLayout.WEST, pokedexSelector, 150, SpringLayout.WEST, this);
       layout.putConstraint(SpringLayout.EAST, pokedexSelector, -150, SpringLayout.WEST, fieldPanel);
-      layout.putConstraint(SpringLayout.SOUTH, pokedexSelector, -150, SpringLayout.SOUTH, this);
+      layout.putConstraint(SpringLayout.SOUTH, pokedexSelector, -100, SpringLayout.SOUTH, this);
    }
 }

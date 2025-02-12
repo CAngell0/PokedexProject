@@ -1,7 +1,9 @@
 package pokedexproject.view;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.LayoutManager;
 import java.awt.RenderingHints;
 import java.awt.Shape;
 import java.awt.geom.Area;
@@ -11,7 +13,6 @@ import java.awt.geom.RoundRectangle2D;
 import javax.swing.JPanel;
 
 public class RoundedPanel extends JPanel {
-   Area shapeArea;
    private int topLeftRadius = 0;
    private int topRightRadius = 0;
    private int bottomLeftRadius = 0;
@@ -20,15 +21,19 @@ public class RoundedPanel extends JPanel {
    public RoundedPanel(){
       setOpaque(false);
    }
+   public RoundedPanel(LayoutManager layoutManager){
+      super(layoutManager);
+      setOpaque(false);
+   }
    
    @Override
    protected void paintComponent(Graphics graphics) {
       Graphics2D graphics2d = (Graphics2D) graphics.create();
       graphics2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-      graphics2d.setBackground(getBackground());
+      graphics2d.setBackground(super.getBackground());
+      graphics2d.setColor(getBackground());
 
-      Area area = new Area();
-      if (topLeftRadius > 0) area.intersect(new Area(createRoundedTopLeft()));
+      Area area = new Area(new Area(createRoundedTopLeft()));
       if (topRightRadius > 0) area.intersect(new Area(createRoundedTopRight()));
       if (bottomLeftRadius > 0) area.intersect(new Area(createRoundedBottomLeft()));
       if (bottomRightRadius > 0) area.intersect(new Area(createRoundedBottomRight()));
@@ -38,6 +43,7 @@ public class RoundedPanel extends JPanel {
       graphics2d.dispose();
       super.paintComponent(graphics);
    }
+
 
    private Shape createRoundedTopLeft(){
       int width = this.getWidth();
@@ -170,7 +176,7 @@ public class RoundedPanel extends JPanel {
    }
 
 
-   
+
    public void setAllRadius(int radius){
       this.setTopLeftRadius(radius);
       this.setTopRightRadius(radius);
