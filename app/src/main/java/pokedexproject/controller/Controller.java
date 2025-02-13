@@ -11,15 +11,22 @@ public class Controller {
    private ArrayList<Pokemon> pokemonList;
    private Popup popup;
    private PokeFrame window;
+   private String dataFile;
 
    public Controller(){
       this.pokemonList = new ArrayList<Pokemon>();
       this.window = new PokeFrame(this);
       this.popup = new Popup(window);
+      this.dataFile = "save.pokemon";
    }
 
    public void start(){
-      createPokedex();
+      // createPokedex();
+
+      ArrayList<Pokemon> saved = IOController.loadData(dataFile, this);
+      if (saved != null && saved.size() > 0){
+         this.pokemonList = saved;
+      }
    }
 
    private void createPokedex(){
@@ -54,6 +61,10 @@ public class Controller {
       }
 
       return isValid;
+   }
+
+   public void save(){
+      IOController.saveData(dataFile, pokemonList, this);
    }
 
    public Popup getPopup(){
