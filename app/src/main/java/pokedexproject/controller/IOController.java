@@ -19,11 +19,13 @@ public class IOController {
          FileInputStream readingStream = new FileInputStream(dataFile);
          ObjectInputStream input = new ObjectInputStream(readingStream);
       ){
-
-      } catch (IOException error){
+         ArrayList<Pokemon> loadedPokemon = new ArrayList<Pokemon>();
+         loadedPokemon = (ArrayList<Pokemon>) input.readObject();
+         pokemonList = loadedPokemon;
+      } catch (IOException | ClassNotFoundException error){
          app.getPopup().displayMessage("Error Getting Data!");
          app.getPopup().displayMessage(error.getMessage());
-      }
+      } 
 
       return pokemonList;
    }
