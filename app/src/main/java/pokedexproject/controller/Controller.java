@@ -55,4 +55,8 @@ public class Controller {
 
       return isValid;
    }
+
+   public Popup getPopup(){
+      return popup;
+   }
 }

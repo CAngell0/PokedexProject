@@ -3,7 +3,7 @@ package pokedexproject.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Pokemon implements Serializable {
+public abstract class Pokemon implements Serializable {
    private int pokedexNumber;
    private int health;
    private boolean canEvolve;
