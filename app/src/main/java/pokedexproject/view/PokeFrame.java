@@ -5,6 +5,7 @@ import pokedexproject.controller.Controller;
 import javax.swing.JFrame;
 
 public class PokeFrame extends JFrame {
+   @SuppressWarnings("unused")
    private Controller app;
    private PokePanel panel;
 

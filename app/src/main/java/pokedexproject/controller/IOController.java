@@ -8,10 +8,10 @@ import java.io.IOException;
 
 import java.util.ArrayList;
 
-import pokedexproject.view.Popup;
 import pokedexproject.model.Pokemon;
 
 public class IOController {
+   @SuppressWarnings("unchecked")
    public static ArrayList<Pokemon> loadData(String dataFile, Controller app){
       ArrayList<Pokemon> pokemonList = null;
 
