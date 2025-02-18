@@ -82,6 +82,16 @@ public class PokePanel extends JPanel {
       repaint();
    }
 
+   private void updateFields(int index){
+      String[] data = app.getPokemonData(index);
+
+      nameField.setText(data[0]);
+      evolveCheckBox.setSelected(Boolean.parseBoolean(data[1]));
+      healthField.setText(data[2]);
+      numberField.setText(data[3]);
+      typeArea.setText(data[4]);
+   }
+
    private void setupDropdown(){
       DefaultComboBoxModel<String> pokeModel = new DefaultComboBoxModel<String>(app.buildPokedexText());
       pokedexSelector.setModel(pokeModel);
