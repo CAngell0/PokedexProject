@@ -21,7 +21,7 @@ public class Controller {
    }
 
    public void start(){
-      // createPokedex();
+      createPokedex();
 
       ArrayList<Pokemon> saved = IOController.loadData(dataFile, this);
       if (saved != null && saved.size() > 0){
@@ -42,12 +42,40 @@ public class Controller {
       pokemonList.add(new Rowlet());
    }
 
-   public void updateCurrentPokemon(String name, int index, int health, boolean canEvolve){
+   public void updateCurrentPokemon(int index, String name, int health, boolean canEvolve){
       Pokemon currentPokemon = pokemonList.get(index);
 
       currentPokemon.setHealth(health);
       currentPokemon.setName(name);
       currentPokemon.setCanEvolve(canEvolve);
+   }
+
+   public String[] buildPokedexText(){
+      String[] pokemonNames = new String[pokemonList.size()];
+
+      for (int index = 0; index < pokemonNames.length; index++){
+         pokemonNames[index] = index + ": " + pokemonList.get(index).getClass().getSimpleName();
+      }
+
+      return pokemonNames;
+   }
+
+   public String[] getPokemonData(int index){
+      String[] data = new String[5];
+
+      Pokemon currentPokemon = pokemonList.get(index);
+      data[0] = currentPokemon.getName();
+      data[1] = currentPokemon.getCanEvolve() + "";
+      data[2] = currentPokemon.getHealth() + "";
+      data[3] = currentPokemon.getPokedexNumber() + "";
+
+      String types = "";
+      for (String type : currentPokemon.getTypes()){
+         types += type + "\n";
+      }
+      data[4] = types;
+
+      return data;
    }
 
    public boolean validateNumber(String text){

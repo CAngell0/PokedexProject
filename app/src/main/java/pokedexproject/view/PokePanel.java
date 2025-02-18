@@ -17,6 +17,7 @@ public class PokePanel extends JPanel {
    private SpringLayout layout;
    
    private JButton updateButton;
+   private JButton saveButton;
    private JCheckBox evolveCheckBox;
    private JTextArea typeArea;
 
@@ -48,7 +49,8 @@ public class PokePanel extends JPanel {
       this.healthLabel = new JLabel("Pokemon Health: ");
       this.numberLabel = new JLabel("Pokedex Number: ");
 
-      this.updateButton = new JButton();
+      this.updateButton = new JButton("Update Pokemon");
+      this.saveButton = new JButton("Save Pokemon");
       this.evolveCheckBox = new JCheckBox("Pokemon Evolves: ", false);
       this.typeArea = new JTextArea(20, 20);
 
@@ -56,25 +58,11 @@ public class PokePanel extends JPanel {
       this.imageLabel = new JLabel("Pokemon Image:");
       this.pokedexSelector = new JComboBox<String>();
 
-      this.updateButton = new JButton("Update Pokemon");
-
       setupPanel();
       setupListeners();
       setupLayout();
 
       updateDisplay("");
-   }
-
-   private void collectInput(){
-      String name = nameField.getText();
-      String healthText = healthField.getText();
-      boolean canEvolve = evolveCheckBox.isSelected();
-      int index = pokedexSelector.getSelectedIndex();
-
-      if (app.validateNumber(healthText) && index > -1){
-         int health = Integer.parseInt(healthText);
-         app.updateCurrentPokemon(name, index, health, canEvolve);
-      }
    }
 
    private void updateDisplay(String name){
@@ -109,7 +97,7 @@ public class PokePanel extends JPanel {
       this.imageLabel.setFont(new Font("Serif", Font.BOLD, 32));
 
       this.nameLabel.setHorizontalAlignment((int) CENTER_ALIGNMENT);
-   this.healthLabel.setHorizontalAlignment((int) CENTER_ALIGNMENT);
+      this.healthLabel.setHorizontalAlignment((int) CENTER_ALIGNMENT);
       this.numberLabel.setHorizontalAlignment((int) CENTER_ALIGNMENT);
 
       this.nameField.setBorder(BorderFactory.createEtchedBorder(EtchedBorder.LOWERED));
@@ -133,7 +121,7 @@ public class PokePanel extends JPanel {
       fieldPanel.add(evolveCheckBox);
       fieldPanel.add(scrollPane);
 
-      fieldPanel.add(new JLabel(" "));
+      fieldPanel.add(saveButton);
       fieldPanel.add(updateButton);
 
       this.add(fieldPanel);
@@ -142,6 +130,7 @@ public class PokePanel extends JPanel {
    }
 
    private void setupListeners(){
+      saveButton.addActionListener(click -> save());
       updateButton.addActionListener(click -> collectInput());
    }
 
@@ -158,5 +147,21 @@ public class PokePanel extends JPanel {
       layout.putConstraint(SpringLayout.WEST, pokedexSelector, 150, SpringLayout.WEST, this);
       layout.putConstraint(SpringLayout.EAST, pokedexSelector, -150, SpringLayout.WEST, fieldPanel);
       layout.putConstraint(SpringLayout.SOUTH, pokedexSelector, -100, SpringLayout.SOUTH, this);
+   }
+
+   private void collectInput(){
+      String name = nameField.getText();
+      String healthText = healthField.getText();
+      boolean canEvolve = evolveCheckBox.isSelected();
+      int index = pokedexSelector.getSelectedIndex();
+
+      if (app.validateNumber(healthText) && index > -1){
+         int health = Integer.parseInt(healthText);
+         app.updateCurrentPokemon(index, name, health, canEvolve);
+      }
+   }
+
+   private void save(){
+      app.save();
    }
 }
